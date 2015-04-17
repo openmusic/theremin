@@ -21,7 +21,9 @@ module.exports = function(context) {
 		}
 	});*/
 
-	node.frequency = frequency;
+	// Aliasing because it's weird to write theremin.frequency.gain.value
+	// instead of theremin.frequency.value, or theremin.frequency.setValueAtTime... etc
+	node.frequency = frequency.gain;
 
 	node.start = function(when, offset, duration) {
 		

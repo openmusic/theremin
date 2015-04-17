@@ -50,3 +50,16 @@ This node can be connected together like any other Web Audio node:
 var gainNode = audioContext.createGain();
 thereminNode.connect(gainNode);
 ```
+
+## Attributes
+
+### `frequency` (AudioParam)
+
+```javascript
+theremin.frequency.value = 123;
+theremin.frequency.setValueAtTime(440, 0);
+```
+
+
+
+
