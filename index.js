@@ -1,22 +1,27 @@
 var setterGetterify = require('setter-getterify');
 var Oscillator = require('openmusic-oscillator');
+var DCBias = require('openmusic-dcbias');
 
 module.exports = function(context) {
 	
 	var node = context.createGain();
 	var oscillator = Oscillator(context);
-
 	oscillator.connect(node);
 
+	var frequency = DCBias(context);
+	frequency.connect(oscillator.frequency);
 
 	/*var nodeProperties = {
-		propertyA: 'default value for A',
-		propertyB: 0.123456,
-		propertyC: 0x123456,
-		propertyD: { 'also': 'objects are ok too' }
+		frequency: 440.0
 	};
 
-	setterGetterify(node, nodeProperties);*/
+	setterGetterify(node, nodeProperties, {
+		afterSetting: function(property, value) {
+			console.log(property, 'was set', value);
+		}
+	});*/
+
+	node.frequency = frequency;
 
 	node.start = function(when, offset, duration) {
 		
@@ -38,3 +43,4 @@ module.exports = function(context) {
 	return node;
 
 };
+

@@ -11,8 +11,8 @@ analyser.connect(limiter);
 var oscilloscope = document.querySelector('openmusic-oscilloscope');
 oscilloscope.attachTo(analyser);
 
-// Change below depending on what your audio node needs to do:
 var Theremin = require('../');
 var thereminNode = Theremin(ac);
 thereminNode.connect(analyser);
 thereminNode.start();
+
