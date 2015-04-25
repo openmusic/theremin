@@ -37,6 +37,7 @@ module.exports = function(context) {
 	};
 
 	node.stop = function(when) {
+		oscillator.stop(when);
 	};
 
 	node.cancelScheduledEvents = function(when) {
