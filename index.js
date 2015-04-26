@@ -11,6 +11,8 @@ module.exports = function(context) {
 	var frequency = DCBias(context);
 	frequency.connect(oscillator.frequency);
 
+
+
 	/*var nodeProperties = {
 		frequency: 440.0
 	};
@@ -24,6 +26,7 @@ module.exports = function(context) {
 	// Aliasing because it's weird to write theremin.frequency.gain.value
 	// instead of theremin.frequency.value, or theremin.frequency.setValueAtTime... etc
 	node.frequency = frequency.gain;
+	node.volume = node.gain;
 
 	node.start = function(when, offset, duration) {
 		
